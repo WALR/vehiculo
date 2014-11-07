@@ -98,6 +98,8 @@ TEMPLATE_DIRS = (
     os.path.join((BASE_DIR), "templates"),
 )
 
+# import os
+# STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static'])
 
 # from os.path import join
 # TEMPLATE_DIRS = (
