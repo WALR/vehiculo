@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+Login
+{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+                      Bienvenido {{user.username|capfirst}}
+                      <a href="/cerrar/">Salir</a>
+                    {% else %}
+                    <form class="container" method="POST">{% csrf_token %}
+                        <div class="row plans">
+                        <div class="col-sm-4">
+                            <div class="plan">
+                                <div class="title">Ingresa tus Datos</div>
+
+                                <label class="control-label" for="inputEmail" >Usuario</label>
+                                <label class="control-label" for="inputPassword">Contraseña</label>
+                                <button type="submit" class="btn btn-info">Ingresar</button>
+                            </div>
+                        </div>
+                    </form>
+
+{% endif %}
+{% endblock %}

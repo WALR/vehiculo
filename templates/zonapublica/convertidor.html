@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}
+Empresa
+{% endblock %}
+
+{% block bar %}
+<li><a href="/">INICIO</a></li>
+<li><a href="/empresa/">EMPRESA</a></li>
+<li><a href="/historial/">HISTORIAL</a></li>
+<li class="active"><a href="/convertidor/">CONVERTIDOR</a></li>
+<li><a href="/contacto/">CONTACTO</a></li>
+{% endblock %}
+{% block user %}
+{% if user.is_authenticated %}
+<div class="navbar-form pull-left">
+    <a class="btn btn-primary" href="/cerrar/">{{user.username|capfirst}} / Salir</a>
+</div>
+{% else %}
+    <div class="navbar-form pull-left">
+        <a class="btn btn-primary" href="/login/">LOGIN</a>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="price-1">
+    <div class="container">
+        <h3 style="color:#565656">Convertidor</h3>
+        <p class="lead">
+            Convierte de Millas a KMs y de KMs a Millas
+        </p>
+        <div class="row plans">
+            <div class="col-xs-6">
+                <div class="plan">
+                    <div class="title">Millas a KMs</div>
+                    <div class="price">Ingresa Millas</div>
+                    <div class="description" align="justify">
+                    <b>
+                        <div class="form-group">
+                            <input id="millas" type="text" class="form-control" placeholder="Millas" onkeypress="return justNumbers(event);" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <button id="cmillas" class="btn btn-primary">CONVERTIR</button>
+                        </div>
+                        <ul id="resultadoM"></ul>
+                    </b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="plan">
+                    <div class="title">KMs a Millas</div>
+                    <div class="price">Ingresa KMs</div>
+                    <div class="description" align="justify">
+                    <b>
+                        <div class="form-group">
+                            <input id="kms" type="text" class="form-control" placeholder="KMs" onkeypress="return justNumbers(event);" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <button id="ckms" class="btn btn-primary">CONVERTIR</button>
+                        </div>
+                        <ul id="resultadoK"></ul>
+                    </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{STATIC_URL}}js/jquery-1.10.2.min.js"></script>
+    <script>
+        var c, k = 1.609344;
+        $('#cmillas').on('click',function(){
+        var m = $('#millas').val();
+        c = m*k;
+        $('#millas').val('');
+        console.log("Convertir "+c);
+        $('#resultadoM').append($('<li>').text(m+" Millas = "+c+" Kilemetros"));
+        });
+
+        $('#ckms').on('click',function(){
+        var kl = $('#kms').val();
+        c = kl/k;
+        $('#mks').val('');
+        console.log("Convertir "+c);
+        $('#resultadoK').append($('<li>').text(kl+" KMs = "+c+" Millas"));
+        });
+
+
+
+        function justNumbers(e)
+        {
+            var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+            return true;
+
+            return /\d/.test(String.fromCharCode(keynum));
+        }
+    </script>
+</section>
+{% endblock %}

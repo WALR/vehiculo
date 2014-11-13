@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+Empresa
+{% endblock %}
+
+{% block bar %}
+<li><a href="/">INICIO</a></li>
+<li class="active"><a href="/empresa/">EMPRESA</a></li>
+<li><a href="/historial/">HISTORIAL</a></li>
+<li><a href="/convertidor/">CONVERTIDOR</a></li>
+<li><a href="/contacto/">CONTACTO</a></li>
+{% endblock %}
+{% block user %}
+{% if user.is_authenticated %}
+<div class="navbar-form pull-left">
+    <a class="btn btn-primary" href="/cerrar/">{{user.username|capfirst}} / Salir</a>
+</div>
+{% else %}
+    <div class="navbar-form pull-left">
+        <a class="btn btn-primary" href="/login/">LOGIN</a>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="price-1">
+    <div class="container">
+        <div class="row plans">
+            <div class="col-xs-6">
+                <div class="plan">
+                    <div class="title">Vision</div>
+                    <div class="price">Lorem ipsum</div>
+                    <div class="description" align="justify">
+                    <b>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore eaque repellat id minima, similique nam nostrum quod vel velit sint maiores officia quidem molestias tempore, eius amet, qui libero.</span>
+                        <span>Repudiandae dicta perspiciatis veritatis quas amet perferendis unde rerum libero aliquam asperiores rem pariatur expedita consequuntur obcaecati quod, non ratione! Quam aliquam, quidem tenetur vitae, commodi voluptatum quae consequatur quod!</span>
+                        <span>Illum qui, a est rerum facere? At dolorem aperiam itaque, molestias provident esse id, iusto soluta modi sequi, labore. Quae vitae quaerat maiores voluptas expedita voluptatum nulla quas voluptatibus eligendi.</span>
+                    </b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="plan">
+                    <div class="title">Mision</div>
+                    <div class="price">Lorem ipsum</div>
+                    <div class="description" align="justify">
+                    <b>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam rem est consequuntur recusandae, inventore, itaque in excepturi cumque libero unde consectetur, a voluptates deleniti aperiam quam fugiat aspernatur. Nam, quas.</span>
+                        <span>Ex totam, labore eveniet natus asperiores maiores maxime sint, odio error culpa officiis reprehenderit quas atque qui, nisi recusandae unde nam iure nulla eos, explicabo porro! Animi, minus nemo nostrum.</span>
+                        <span>Nostrum dolorem doloremque excepturi expedita quod labore totam veniam, quasi, commodi illum suscipit obcaecati nihil. Porro expedita praesentium soluta? Incidunt possimus molestiae, praesentium debitis fuga ea dolorum provident maiores deleniti.</span>
+                    </b>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

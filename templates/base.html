@@ -1,90 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title %}Transportes RALV {% endblock %}</title>
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <link rel="shortcut icon" href="{{STATIC_URL}}favicon.ico">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/flat-ui.css">
-        <!-- Using only with Flat-UI (free)-->
-        <link rel="stylesheet" href="{{STATIC_URL}}fonts/icon-font.css">
-        <!-- end -->
-        <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Transportes RALV{% endblock %}</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="shortcut icon" href="{{STATIC_URL}}favicon.ico">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/flat-ui.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}fonts/icon-font.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header-11">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar col-sm-12" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle"></button>
+                            <a class="brand" href="/"><img src="{{STATIC_URL}}img/logo@2x.png" width="50" height="50" alt=""> Transportes RALV</a>
+                        </div>
+                        <div class="collapse navbar-collapse pull-right">
 
-    <body>
-        <div class="page-wrapper">
-            <!-- header-11 -->
-            <header class="header-11">
-                <div class="container">
-                    <div class="row">
-                        <div class="navbar col-sm-12" role="navigation">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle"></button>
-                                <a class="brand" href="#"><img src="{{STATIC_URL}}img/logo@2x.png" width="50" height="50" alt=""> Transportes RALV</a>
-                            </div>
-                            <div class="collapse navbar-collapse pull-right">
-                                {% block sidebar %}
-                                <ul class="nav pull-left">
-                                    <li class="active"><a href="#">INICIO</a></li>
-                                    <li><a href="#">EMPRESA</a></li>
-                                    <li><a href="#">HISTORIAL</a></li>
-                                    <li><a href="#">CONVERTIDOR</a></li>
-                                    <li><a href="#">CONTACTO</a></li>
-                                </ul>
-                                {% if not request.user.is_authenticated %}
-                                <form class="navbar-form pull-left">
-                                    <a class="btn btn-primary" href="#">LOGIN</a>
-                                </form>
-                                {% endif %}
+                            <ul class="nav pull-left">
+                                {% block bar %}
+                                <li class="active"><a href="/">INICIO</a></li>
+                                <li><a href="/empresa/">EMPRESA</a></li>
+                                <li><a href="/historial/">HISTORIAL</a></li>
+                                <li><a href="/convertidor/">CONVERTIDOR</a></li>
+                                <li><a href="/contacto/">CONTACTO</a></li>
                                 {% endblock %}
+                            </ul>
+                            {% block user %}
+                            {% if user.is_authenticated %}
+                            <div class="navbar-form pull-left">
+                                <a class="btn btn-primary" href="cerrar/">{{user.username|capfirst}} / Salir</a>
                             </div>
+                            {% else %}
+                            <div class="navbar-form pull-left">
+                                <a class="btn btn-primary" href="/login/">LOGIN</a>
+                            </div>
+                            {% endif %}
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
-            </header>
-           {% block content %}
-           {% endblock %}
-            <!-- footer-2 -->
-            <footer class="footer-2 bg-midnight-blue">
-                <div class="container">
-                    <nav class="pull-left">
-                        <ul>
-                            <li class="active">
-                                <a href="#">Inicio</a>
-                            </li>
-                            <li>
-                                <a href="#">Empresa</a>
-                            </li>
-                            <li>
-                                <a href="#">Historial</a>
-                            </li>
-                            <li>
-                                <a href="#">Convertidor</a>
-                            </li>
-                            <li>
-                                <a href="#">Contacto</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="social-btns pull-right">
-                        <a href="#"><div class="fui-vimeo"></div><div class="fui-vimeo"></div></a>
-                        <a href="#"><div class="fui-facebook"></div><div class="fui-facebook"></div></a>
-                        <a href="#"><div class="fui-twitter"></div><div class="fui-twitter"></div></a>
-                    </div>
+            </div>
+        </header>
+        {% block content %}
+        {% endblock %}
+        <!-- footer-2 -->
+        <footer class="footer-2 bg-midnight-blue">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li class="active">
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Empresa</a>
+                        </li>
+                        <li>
+                            <a href="#">Historial</a>
+                        </li>
+                        <li>
+                            <a href="#">Convertidor</a>
+                        </li>
+                        <li>
+                            <a href="#">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="social-btns pull-right">
+                    <a href="#"><div class="fui-vimeo"></div><div class="fui-vimeo"></div></a>
+                    <a href="#"><div class="fui-facebook"></div><div class="fui-facebook"></div></a>
+                    <a href="#"><div class="fui-twitter"></div><div class="fui-twitter"></div></a>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+    </div>
 
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{STATIC_URL}}js/jquery-1.10.2.min.js"></script>
-        <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
-        <script src="{{STATIC_URL}}js/modernizr.custom.js"></script>
-        <script src="{{STATIC_URL}}js/startup-kit.js"></script>
-        <script src="{{STATIC_URL}}js/script.js"></script>
-    </body>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{STATIC_URL}}js/jquery-1.10.2.min.js"></script>
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}js/modernizr.custom.js"></script>
+    <script src="{{STATIC_URL}}js/startup-kit.js"></script>
+    <script src="{{STATIC_URL}}js/script.js"></script>
+</body>
 </html>

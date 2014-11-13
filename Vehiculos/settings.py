@@ -27,6 +27,12 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Logeo
+from django.core.urlresolvers import reverse_lazy
+LOGIN_URL = reverse_lazy('index')
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGOUT_URL = reverse_lazy('logout')
+
 # Application definition
 
 INSTALLED_APPS = (

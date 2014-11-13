@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}
+Empresa
+{% endblock %}
+
+{% block bar %}
+<li><a href="/">INICIO</a></li>
+<li><a href="/empresa/">EMPRESA</a></li>
+<li><a href="/historial/">HISTORIAL</a></li>
+<li><a href="/convertidor/">CONVERTIDOR</a></li>
+<li class="active"><a href="/contacto/">CONTACTO</a></li>
+{% endblock %}
+{% block user %}
+{% if user.is_authenticated %}
+<div class="navbar-form pull-left">
+    <a class="btn btn-primary" href="/cerrar/">{{user.username|capfirst}} / Salir</a>
+</div>
+{% else %}
+    <div class="navbar-form pull-left">
+        <a class="btn btn-primary" href="/login/">LOGIN</a>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="price-1">
+    <div class="container">
+        <h3 style="color:#565656">Ruta Interesado</h3>
+        <p class="lead">
+            Envia la ruta de tu interes
+        </p>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title"></div>
+                    <div class="price">Ingresa la Ruta</div>
+                    <div class="description" align="justify">
+                    <b>
+                        <div class="form-group">
+                            <label for="">Nombre</label>
+                            <input id="millas" type="text" class="form-control" placeholder="Nombre" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input id="millas" type="text" class="form-control" placeholder="Email" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Ruta</label>
+                            <input id="millas" type="text" class="form-control" placeholder="Ruta" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Descripcion</label>
+                            <input id="millas" type="text" class="form-control" placeholder="Describre la ruta" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <button id="cmillas" class="btn btn-primary">Enviar</button>
+                        </div>
+                        <ul id="resultadoM"></ul>
+                    </b>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+{% endblock %}
