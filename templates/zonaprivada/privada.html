@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}
+Zona Privada
+{% endblock %}
+
+{% block bar %}
+<li><a href="/">INICIO</a></li>
+<li><a href="/empresa/">EMPRESA</a></li>
+<li><a href="/historial/">HISTORIAL</a></li>
+<li><a href="/convertidor/">CONVERTIDOR</a></li>
+<li><a href="/contacto/">CONTACTO</a></li>
+{% endblock %}
+{% block user %}
+{% if user.is_authenticated %}
+<div class="navbar-form pull-left">
+    <a class="btn btn-primary" href="/cerrar/">{{user.username|capfirst}} / Salir</a>
+</div>
+{% else %}
+    <div class="navbar-form pull-left">
+        <a class="btn btn-primary" href="/login/">LOGIN</a>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="price-1">
+    <div class="container">
+    <h3 style="color:#565656">Zona Privada</h3>
+        <p class="lead">
+            Toda las rutas activas
+        </p>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title">Ruta al Pacifico</div>
+                    <div class="price">45 KMs</div>
+                    <div class="description" align="justify">
+                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>
+                    </div>
+                    <a class="btn btn-primary" href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title">Ruta al Atlantico</div>
+                    <div class="price">45 KMs</div>
+                    <div class="description" align="justify">
+                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>
+                    </div>
+                    <a class="btn btn-primary" href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title">Ruta al Oeste</div>
+                    <div class="price">92 KMs</div>
+                    <div class="description" align="justify">
+                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>
+                    </div>
+                    <a class="btn btn-primary" href="#">Ver mas</a>
+                    <div class="ribbon">NUEVA</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title">Ruta Carretera al Salvador</div>
+                    <div class="price">76 KMs</div>
+                    <div class="description" align="justify">
+                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>
+                    </div>
+                    <a class="btn btn-primary" href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title">Ruta a la Antigua</div>
+                    <div class="price">85 KMs</div>
+                    <div class="description" align="justify">
+                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>
+                    </div>
+                    <a class="btn btn-primary" href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title">Ruta Costanera</div>
+                    <div class="price">95 KMs</div>
+                    <div class="description" align="justify">
+                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>
+                    </div>
+                    <a class="btn btn-primary" href="#">Ver mas</a>
+                    <div class="ribbon">NUEVA</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="row plans">
+            <div class="col-md-12">
+                <div class="plan">
+                    <div class="title">Ruta Nort-Oeste</div>
+                    <div class="price">74 KMs</div>
+                    <div class="description" align="justify">
+                        <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>
+                    </div>
+                    <a class="btn btn-primary" href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+    </div>
+</section>
+{% endblock %}

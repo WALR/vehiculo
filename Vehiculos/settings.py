@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 # Logeo
 from django.core.urlresolvers import reverse_lazy
 LOGIN_URL = reverse_lazy('index')
-LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGIN_REDIRECT_URL = reverse_lazy('zonaprivada')
 LOGOUT_URL = reverse_lazy('logout')
 
 # Application definition
@@ -78,7 +78,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'es-GT'
+LANGUAGE_CODE = 'es-MX'
 
 TIME_ZONE = 'UTC'
 
