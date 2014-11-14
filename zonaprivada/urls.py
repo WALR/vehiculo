@@ -3,5 +3,4 @@ from .views import *
 
 urlpatterns = patterns('',
     url(r'^zonaprivada/$', zonaprivada.as_view(), name='zonaprivada'),
-
 )

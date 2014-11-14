@@ -1,7 +1,7 @@
 from django.db import models
 
 class rutaInteres(models.Model):
-    nombre = models.CharField(max_length=150)
+    nombre = models.CharField(max_length=150, default='Nombre Ruta')
     descripcion = models.TextField(max_length=200)
     direccion = models.CharField(max_length=60, blank=True)
     telefono = models.IntegerField(max_length=50, blank=True)

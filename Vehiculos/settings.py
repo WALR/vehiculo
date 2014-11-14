@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'zonapublica',
     'zonaprivada',
+    'braces',
 )
 
 MIDDLEWARE_CLASSES = (
