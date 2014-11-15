@@ -1,20 +1,17 @@
 {% extends "base.html" %}
 {% block title %}
-Empresa
+Zona Privada
 {% endblock %}
 
 {% block bar %}
 <li><a href="/">INICIO</a></li>
 <li><a href="/empresa/">EMPRESA</a></li>
-<li class="active"><a href="/historial/">HISTORIAL</a></li>
+<li><a href="/historial/">HISTORIAL</a></li>
 <li><a href="/convertidor/">CONVERTIDOR</a></li>
 <li><a href="/contacto/">CONTACTO</a></li>
 {% endblock %}
 {% block user %}
 {% if user.is_authenticated %}
-<div class="navbar-form pull-left">
-    <a class="btn btn-primary" href="/administador/">Menu</a>
-</div>
 <div class="navbar-form pull-left">
     <a class="btn btn-primary" href="/cerrar/">{{user.username|capfirst}} / Salir</a>
 </div>
@@ -28,14 +25,21 @@ Empresa
 {% block content %}
 <section class="price-1">
     <div class="container">
-    <h3 style="color:#565656">Historial de Rutas</h3>
+    <h3 style="color:#565656">Conductor</h3>
         <p class="lead">
-            Toda las rutas activas
+            Menu Conductor
         </p>
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="/conductor/viajes/">Viajes</a></li>
+            <li role="presentation"><a href="#">Historial</a></li>
+            <li role="presentation"><a href="#">Estadistica</a></li>
+        </ul>
+        {% block conductor_viajes %}
+        {% endblock %}
         <div class="row plans">
             <div class="col-md-12">
                 <div class="plan">
-                    <div class="title">Ruta al Pacifico</div>
+                    <div class="title">Viajes</div>
                     <div class="price">45 KMs</div>
                     <div class="description" align="justify">
                         <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quae in asperiores quasi amet perspiciatis distinctio vel iure neque blanditiis repellat suscipit, corrupti tempore voluptatem porro facere odit error, debitis.</b>

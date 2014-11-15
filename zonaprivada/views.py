@@ -1,16 +1,47 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.views.generic import TemplateView
+from django.views.generic.edit import FormView
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin, GroupRequiredMixin, AnonymousRequiredMixin
 from django import template
 from django.contrib.auth.models import Group
+from .forms import categoriaForm
+from django.http import HttpResponseRedirect
+from django.core.context_processors import csrf
 
 
-class zonaprivada(LoginRequiredMixin, TemplateView):
+class zonaprivada(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
+    template_name = 'zonaprivada/privada.html'
+    login_url = "/conductor/"
+    redirect_field_name = "/administrador/"
+    group_required = u"admin"
+
+
+class administrador(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
     template_name = 'zonaprivada/privada.html'
     login_url = "/login/"
+    group_required = u"admin"
+
+class conductor(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
+    template_name = 'zonaprivada/conductor.html'
+    login_url = "/login/"
+    group_required = u"conductor"
+
+class conductor_viajes(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
+    template_name = 'zonaprivada/conductor_viajes.html'
+    login_url = "/login/"
+    group_required = u"conductor"
 
 
+class crearcategoria(FormView):
+    template_name = 'zonaprivada/crear_categoria.html'
+    form_class = categoriaForm
+    success_url = '/thanks/'
 
+
+# def crearcategoria(request):
+#     context = {"form" : form}
+#     template = "zonaprivada/crear_categoria.html"
+#     return render(request, template, context)
     #optional
 
     # template_name = 'zonaprivada/privada.html'

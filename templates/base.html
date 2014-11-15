@@ -36,6 +36,9 @@
                             {% block user %}
                             {% if user.is_authenticated %}
                             <div class="navbar-form pull-left">
+                                <a class="btn btn-primary" href="/administador/">Menu</a>
+                            </div>
+                            <div class="navbar-form pull-left">
                                 <a class="btn btn-primary" href="cerrar/">{{user.username|capfirst}} / Salir</a>
                             </div>
                             {% else %}
