@@ -69,14 +69,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-   #  'default': {
-   #          'ENGINE': 'django.db.backends.postgresql_psycopg2', # Agregar la DB  'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-   #          'NAME': 'mydb',   # Agregar el nombre de la DB
-   #          'USER': 'auto',   # Agregar el usaurio
-   #          'PASSWORD': '123', # Agregar la contraseña
-   #          'HOST': 'localhost', # Agregar el host donde esta la DB, si se encuenta local colocar localhost o '127.0.0.1'
-   #          'PORT': '',          # Agregar el puerto de la DB
-   # }
+#
+# 'default': {
+#            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Agregar la DB  'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#            'NAME': 'mydb',   # Agregar el nombre de la DB
+#            'USER': 'auto',   # Agregar el usuario
+#            'PASSWORD': '123', # Agregar la contrasena
+#            'HOST': 'localhost', # Agregar el host donde esta la DB, si se encuenta local colocar localhost o '127.0.0.1'
+#            'PORT': '',          # Agregar el puerto de la DB
+#   }
+#
+#
 }
 
 # Internationalization
